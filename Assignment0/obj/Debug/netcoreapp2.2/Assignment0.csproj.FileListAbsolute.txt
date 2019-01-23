@@ -1,0 +1,11 @@
+/home/logan/CSharpLab/Assignment0/bin/Debug/netcoreapp2.2/Assignment0.deps.json
+/home/logan/CSharpLab/Assignment0/bin/Debug/netcoreapp2.2/Assignment0.runtimeconfig.json
+/home/logan/CSharpLab/Assignment0/bin/Debug/netcoreapp2.2/Assignment0.runtimeconfig.dev.json
+/home/logan/CSharpLab/Assignment0/bin/Debug/netcoreapp2.2/Assignment0.dll
+/home/logan/CSharpLab/Assignment0/bin/Debug/netcoreapp2.2/Assignment0.pdb
+/home/logan/CSharpLab/Assignment0/obj/Debug/netcoreapp2.2/Assignment0.csprojAssemblyReference.cache
+/home/logan/CSharpLab/Assignment0/obj/Debug/netcoreapp2.2/Assignment0.csproj.CoreCompileInputs.cache
+/home/logan/CSharpLab/Assignment0/obj/Debug/netcoreapp2.2/Assignment0.AssemblyInfoInputs.cache
+/home/logan/CSharpLab/Assignment0/obj/Debug/netcoreapp2.2/Assignment0.AssemblyInfo.cs
+/home/logan/CSharpLab/Assignment0/obj/Debug/netcoreapp2.2/Assignment0.dll
+/home/logan/CSharpLab/Assignment0/obj/Debug/netcoreapp2.2/Assignment0.pdb
