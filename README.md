@@ -27,3 +27,5 @@ Go to terminal inside of vs code, and type 'dotnet restore'
 In the terminal, type 'dotnet run' to run the app
 
 More on this at https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows
+
+If you have more than one .cs file in a project, then go to .csproj and change the <StartupObject></StartUpObject>: If the root folder is Assignment1, then Assignment1.DisplayPrimeNumbers will run DisplayPrimeNumbers.cs
