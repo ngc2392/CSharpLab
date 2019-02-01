@@ -16,16 +16,16 @@ namespace Assignment1
             userInput = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("You typed " + userInput);
 
-
-            if (isPrime(userInput))
+            for(int i = 0; i < userInput; i++) 
             {
-                Console.WriteLine(userInput + " is prime");
-            }
-            else
-            {
-                Console.WriteLine(userInput + " IS NOT prime");
+                if(isPrime(i)) {
+                    Console.WriteLine(i);
+                
             }
         }
+
+    }
+
 
         public static bool isPrime(int numberToCheck)
         {
