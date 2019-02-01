@@ -18,18 +18,13 @@ namespace Assignment1
 
             for(int i = 0; i < userInput; i++) 
             {
-                if(isPrime(i)) {
+                if(IsPrime(i)) {
                     Console.WriteLine(i);
-                
             }
         }
-
     }
-
-
-        public static bool isPrime(int numberToCheck)
+        public static bool IsPrime(int numberToCheck)
         {
-
             // We'll count 1 as not prime.  I'm not sure though
             if (numberToCheck == 1)
             {
@@ -54,13 +49,9 @@ namespace Assignment1
                     }
 
                 }
-
             }
-
-
             // the number got past the for loop, so it must be prime
             return true;
-
         }
     }
 }
