@@ -1,56 +1,45 @@
 using System;
 
-public class Fraction
-{
+public class Fraction {
     private int numerator;
     private int denominator;
 
-    public Fraction()
-    {
+    public Fraction () {
         Numerator = 0;
         Denominator = 0;
     }
 
-    public Fraction(int num, int den)
-    {
+    public Fraction (int num, int den) {
         this.Numerator = num;
         this.Denominator = den;
     }
 
     // Declare a Numerator property of type int
-    public int Numerator
-    {
-        get
-        {
+    public int Numerator {
+        get {
             return this.numerator;
         }
-        set
-        {
+        set {
             this.numerator = value;
         }
     }
 
     // Declare a Denominator property of type int
     // https://stackoverflow.com/questions/367192/why-does-property-set-throw-stackoverflow-exception
-    public int Denominator
-    {
-        get
-        {
+    public int Denominator {
+        get {
             return this.denominator;
         }
-        set
-        {
+        set {
             this.denominator = value;
         }
     }
 
     // Overload + operator to add two fraction objects
-    public static Fraction operator +(Fraction a, Fraction b)
-    {
+    public static Fraction operator + (Fraction a, Fraction b) {
 
-        if ((a.Denominator == 0) || (b.Denominator == 0))
-        {
-            throw new ArgumentException("Invalid Denominator");
+        if ((a.Denominator == 0) || (b.Denominator == 0)) {
+            throw new ArgumentException ("Invalid Denominator");
         }
 
         // multiply the  numerator and Denominator of Fraction 'a' by Denominator of 'b'.  
@@ -59,60 +48,53 @@ public class Fraction
         int num = (a.Numerator * b.Denominator) + (b.Numerator * a.Denominator);
         int den = a.Denominator * b.Denominator;
 
-        Fraction result = new Fraction(num, den);
+        Fraction result = new Fraction (num, den);
 
         return result;
     }
 
     // Overload - operator to subtract two fraction objecfts
-    public static Fraction operator -(Fraction a, Fraction b)
-    {
+    public static Fraction operator - (Fraction a, Fraction b) {
 
-        if ((a.Denominator == 0) || (b.Denominator == 0))
-        {
-            throw new ArgumentException("Invalid Denominator");
+        if ((a.Denominator == 0) || (b.Denominator == 0)) {
+            throw new ArgumentException ("Invalid Denominator");
         }
 
         int num = a.Numerator * b.Denominator - b.Numerator * a.Denominator;
         int den = a.Denominator * b.Denominator;
 
-        Fraction result = new Fraction(num, den);
+        Fraction result = new Fraction (num, den);
 
         return result;
 
     }
 
     // Overload * operator to multiply two fraction objects
-    public static Fraction operator *(Fraction a, Fraction b)
-    {
+    public static Fraction operator * (Fraction a, Fraction b) {
         int numerator = a.Numerator * b.Numerator;
 
         int Denominator = a.Denominator * b.Denominator;
 
         // https://stackoverflow.com/questions/19138195/c-sharp-assign-data-to-properties-via-constructor-vs-instantiating
-        Fraction product = new Fraction
-        {
+        Fraction product = new Fraction {
             Numerator = numerator,
             Denominator = Denominator
         };
         return product;
     }
 
-    public static Fraction operator /(Fraction a, Fraction b)
-    {
-        if ((a.Denominator == 0) || (b.Denominator == 0))
-        {
-            throw new ArgumentException("Invalid Denominator");
+    public static Fraction operator / (Fraction a, Fraction b) {
+        if ((a.Denominator == 0) || (b.Denominator == 0)) {
+            throw new ArgumentException ("Invalid Denominator");
 
         }
         // The classic copy, change, flip method
-        Fraction result = a * new Fraction(b.Denominator, b.Numerator);
+        Fraction result = a * new Fraction (b.Denominator, b.Numerator);
 
         return result;
     }
 
-    public override string ToString()
-    {
+    public override string ToString () {
         return Numerator + "/" + Denominator;
     }
 }
