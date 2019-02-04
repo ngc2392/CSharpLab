@@ -24,7 +24,7 @@ namespace Assignment1
 
             a = 10;
             while(a != 5){
-                Console.WriteLine("In da loop");
+                Console.WriteLine("In the loop");
                 a--;
             }
 

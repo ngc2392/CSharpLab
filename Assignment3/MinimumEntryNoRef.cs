@@ -1,7 +1,7 @@
 /*
-    The array list of ints is a global variable.  The method accesses
-    the array list directly and modifies it.  Since we are not
-    passing the structure into the method, we are accessing the 
+    The arraylist of ints is a global variable.  The method accesses
+    the arraylist directly and modifies it.  Since we are not
+    passing the arraylist into the method, we are accessing the 
     value of the list, not the reference of the memory address.
  */
 

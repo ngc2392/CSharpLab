@@ -1,8 +1,11 @@
 using System;
 
-namespace Assignment4 {
-    class TestClass {
-        static void Main (string[] args) {
+namespace Assignment4 
+{
+    class TestClass
+     {
+        static void Main (string[] args)
+         {
             Fraction f1 = new Fraction (1, 3);
             Console.WriteLine (f1.ToString ());
 
@@ -43,7 +46,8 @@ namespace Assignment4 {
             Console.WriteLine ((new Fraction (40, 5) / new Fraction (2, 3)).ToString ());
 
             // Error handling
-            Fraction error = new Fraction {
+            Fraction error = new Fraction 
+            {
                 Numerator = 5,
                 Denominator = 0
             };
