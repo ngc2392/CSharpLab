@@ -15,20 +15,19 @@ namespace Assignment2
             int totalNumOfVowels = 0;
             int totalNumOfConsonants = 0;
 
-            for(int i = 0; i < userString.Length; i++) 
+            for (int i = 0; i < userString.Length; i++)
             {
-                if(userString[i] == 'a' || userString[i] == 'e' || userString[i] == 'o'
-                    || userString[i] == 'u') 
-                    {
-                        totalNumOfVowels++;
-                    } else if(!Char.IsWhiteSpace(userString[i])) 
-                    {
-                        totalNumOfConsonants++;
-                    }
+                if (userString[i] == 'a' || userString[i] == 'e' || userString[i] == 'o'
+                    || userString[i] == 'u')
+                {
+                    totalNumOfVowels++;
+                }
+                else if (!Char.IsWhiteSpace(userString[i]))
+                {
+                    totalNumOfConsonants++;
+                }
             }
-           
             Console.WriteLine("There are " + totalNumOfVowels + " vowels and " + (totalNumOfConsonants) + " consonants in the string " + "\"" + userString + "\"");
-
         }
     }
 }

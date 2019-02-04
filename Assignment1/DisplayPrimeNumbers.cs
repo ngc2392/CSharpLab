@@ -16,13 +16,14 @@ namespace Assignment1
             userInput = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("You typed " + userInput);
 
-            for(int i = 0; i < userInput; i++) 
+            for (int i = 0; i < userInput; i++)
             {
-                if(IsPrime(i)) {
+                if (IsPrime(i))
+                {
                     Console.WriteLine(i);
+                }
             }
         }
-    }
         public static bool IsPrime(int numberToCheck)
         {
             // We'll count 1 as not prime.  I'm not sure though
