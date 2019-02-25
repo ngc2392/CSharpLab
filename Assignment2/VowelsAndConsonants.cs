@@ -17,8 +17,9 @@ namespace Assignment2
 
             for (int i = 0; i < userString.Length; i++)
             {
-                if (userString[i] == 'a' || userString[i] == 'e' || userString[i] == 'o'
-                    || userString[i] == 'u')
+                if (userString[i] == 'a' || userString[i] == 'e' || userString[i] == 'i' || userString[i] == 'o'
+                    || userString[i] == 'u' || userString[i] == 'A' || userString[i] == 'E' || userString[i] == 'I' || userString[i] == 'O'
+                    || userString[i] == 'U' )
                 {
                     totalNumOfVowels++;
                 }

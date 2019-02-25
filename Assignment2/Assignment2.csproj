@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <StartupObject>Assignment2.OutputDirectoryInformation</StartupObject>
+    <StartupObject>Assignment2.VowelsAndConsonants</StartupObject>
 
   </PropertyGroup>
 
