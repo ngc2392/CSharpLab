@@ -5,13 +5,15 @@ namespace Assignment5
     class AnalyzingData
     {
 
-        public delegate void ArrayAnalysisDelegate(int[] numbers);
+        public delegate int ArrayAnalysisDelegate(int[] numbers);
 
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
             int[] numbers = new int[] {};
+
+             ArrayAnalysisDelegate minEntryDelegate = new ArrayAnalysisDelegate(minimumEntry);
         }
 
         public static int minimumEntry(int[] numbers) 
@@ -50,14 +52,27 @@ namespace Assignment5
 
         }
 
-        public static int averageValue() 
+        public static decimal averageValue(int[] numbers) 
         {
 
+        int sum = 0;
+        for(int i = 0; i < numbers.Length; i++)
+        {
+            sum += numbers[i];
         }
 
-        public static int standardDeviation() 
+        decimal average = (decimal)sum / numbers.Length;
+
+      
+        return average;
+
+
+}
+        
+        public static int standardDeviation(int[] numbers) 
         {
 
+            // https://stackoverflow.com/a/5336513/9599554
         }
 
     }
