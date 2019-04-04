@@ -6,7 +6,7 @@ namespace Assignment5
     {
 
         
-        public delegate void ArrayAnalysisDelegate(int[] numbers);
+        public delegate double ArrayAnalysisDelegate(int[] numbers);
 
         static void Main(string[] args)
         {
@@ -20,14 +20,14 @@ namespace Assignment5
             ArrayAnalysisDelegate averageValueDelegate = new ArrayAnalysisDelegate(averageValue);
             //ArrayAnalysisDelegate standardDeviationDelegate = new ArrayAnalysisDelegate(standardDeviation);
 
-            minEntryDelegate(numbers);
-            maxEntryDelegate(numbers);
-            medianValueDelegate(numbers);
-            averageValueDelegate(numbers);
+            Console.WriteLine("Minimum Entry: "+ minEntryDelegate(numbers));
+            Console.WriteLine("Maximum Entry: " + maxEntryDelegate(numbers));
+            Console.WriteLine("Median value: " + medianValueDelegate(numbers));
+            Console.WriteLine("Average value: " + averageValueDelegate(numbers));
 
         }
 
-        public static void minimumEntry(int[] numbers) 
+        public static double minimumEntry(int[] numbers) 
         {
             int min = numbers[0];
 
@@ -39,12 +39,12 @@ namespace Assignment5
                 }
             }
 
-            Console.WriteLine("Minimum entry " + min);
-            
+            //Console.WriteLine("Minimum entry " + min);
+            return min;
 
         }
 
-        public static void maximumEntry(int[] numbers)
+        public static double maximumEntry(int[] numbers)
         {
             int max = numbers[0];
 
@@ -56,32 +56,35 @@ namespace Assignment5
                 }
             }
             
-            Console.WriteLine("Maximum entry " + max);
+            return max;
+            //Console.WriteLine("Maximum entry " + max);
         }
 
         
-        public static void medianValue(int[] numbers)
+        public static double medianValue(int[] numbers)
         {
-            int median = 0;
+            double median = 0;
 
             Array.Sort(numbers);
             if(numbers.Length % 2 == 0) { //even number of entries
                 double val = (numbers[(numbers.Length/2)-1] + numbers[(numbers.Length/2)])/2.0;
-                Console.WriteLine("Median value is " + val);
+                median = val;
+                //Console.WriteLine("Median value is " + val);
             } else { //odd number of entries
                 int iteration = 0;
                 foreach (int i in numbers) {
                     iteration++;
                     if(iteration == (numbers.Length / 2)+1) {
-                        Console.WriteLine("Median value is " + i);
-                        return;
+                        //Console.WriteLine("Median value is " + i);
+                        median = i;
                     }
                 }
             }
+            return median;
         }
         
 
-        public static void averageValue(int[] numbers) 
+        public static double averageValue(int[] numbers) 
         {
 
         int sum = 0;
@@ -90,9 +93,10 @@ namespace Assignment5
             sum += numbers[i];
         }
 
-        decimal average = (decimal)sum / numbers.Length;
+        double average = (double) sum / numbers.Length;
 
-        Console.WriteLine("The average value is " + average);
+        return average;
+        //Console.WriteLine("The average value is " + average);
       
 }
 
