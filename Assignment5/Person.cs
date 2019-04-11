@@ -12,7 +12,6 @@ namespace Assignment5
 
         public string Name 
         {
-            
             get
             {
                 return this.name;
@@ -24,6 +23,8 @@ namespace Assignment5
         }
 
         public int Age { get; private set; }
+
+        public Person(){}
         public Person(string name, int age)
         {
             Name = name;
@@ -42,9 +43,9 @@ namespace Assignment5
             Person[] people = new Person[] {p, p2};
 
 
-            FilterDelegate isChildDelegate = new FilterDelegate(isChildDelegate);
+            FilterDelegate isChildDelegate = new FilterDelegate(isChild);
 
-            DisplayPeople(people, isChildDelegate));
+            DisplayPeople(people, isChildDelegate);
 
            
         }
@@ -52,6 +53,8 @@ namespace Assignment5
         public List<Person> DisplayPeople(Person[] people, FilterDelegate method)
         {
             List<Person> filteredList = new List<Person>();
+
+            Console.WriteLine("Method name: " + method.Method.Name);
 
             foreach(var p in people)
             {
