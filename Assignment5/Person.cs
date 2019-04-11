@@ -38,19 +38,31 @@ namespace Assignment5
                 Age = 33
             };
 
-            Person p2 = new Person("bob", 15);
+            Person p2 = new Person("Robert", 13);
+            Person p3 = new Person("Benjamin", 72);
+            Person p4 = new Person("Matt", 17);
+            Person p5 = new Person("Reese", 44);
+
             
-            Person[] people = new Person[] {p, p2};
+            Person[] people = new Person[] {p, p2, p3, p4, p5};
 
 
             FilterDelegate isChildDelegate = new FilterDelegate(isChild);
 
-            DisplayPeople(people, isChildDelegate);
+            var filtered = DisplayPeople(people, isChildDelegate);
+
+            foreach (var per in filtered)
+            {
+                Console.WriteLine(per.Name);
+            }
+
+            Console.WriteLine();
+            
 
            
         }
 
-        public List<Person> DisplayPeople(Person[] people, FilterDelegate method)
+        public static List<Person> DisplayPeople(Person[] people, FilterDelegate method)
         {
             List<Person> filteredList = new List<Person>();
 
@@ -60,12 +72,11 @@ namespace Assignment5
             {
                 if(method(p) == true)
                     filteredList.Add(p);
-
             }
             return filteredList;
         }
 
-        public bool isChild(Person p)
+        public static bool isChild(Person p)
         {
             if(p.Age < 18)
                 return true;
@@ -73,7 +84,7 @@ namespace Assignment5
                 return false;
         }
 
-        public bool firstNameOnly(Person p)
+        public static bool firstNameOnly(Person p)
         {
             if(p.Name.Contains(" "))
                 return false;
@@ -81,7 +92,7 @@ namespace Assignment5
                 return true;
         }
 
-        public bool firstNameIsPalindrome(Person p)
+        public static bool firstNameIsPalindrome(Person p)
         {
             string firstName = p.Name;
 
