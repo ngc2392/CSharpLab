@@ -18,12 +18,13 @@ namespace Assignment5
             ArrayAnalysisDelegate maxEntryDelegate = new ArrayAnalysisDelegate(maximumEntry);
             ArrayAnalysisDelegate medianValueDelegate = new ArrayAnalysisDelegate(medianValue);
             ArrayAnalysisDelegate averageValueDelegate = new ArrayAnalysisDelegate(averageValue);
-            //ArrayAnalysisDelegate standardDeviationDelegate = new ArrayAnalysisDelegate(standardDeviation);
+            ArrayAnalysisDelegate standardDeviationDelegate = new ArrayAnalysisDelegate(standardDeviation);
 
             Console.WriteLine("Minimum Entry: "+ minEntryDelegate(numbers));
             Console.WriteLine("Maximum Entry: " + maxEntryDelegate(numbers));
             Console.WriteLine("Median value: " + medianValueDelegate(numbers));
             Console.WriteLine("Average value: " + averageValueDelegate(numbers));
+            Console.WriteLine("Standard Deviation value: " + standardDeviationDelegate(numbers));
 
         }
 
@@ -101,13 +102,47 @@ namespace Assignment5
 }
 
         // https://stackoverflow.com/a/5336513/9599554
-        /* 
-        public static int standardDeviation(int[] numbers) 
+        
+        public static double standardDeviation(int[] numbers) 
         {
+            // get the mean
+            double avg = averageValue(numbers);
 
+            // for each number: subtract the Mean and square the result
+            var squaredDifferences = new double[numbers.Length];
+
+            var i = 0;
+            foreach(var num in numbers) 
+            {
+                // subtract the Mean and square the result
+                double temp = (avg - num);
+                // squaredd difference
+                double square = temp * temp;
+
+                // add the squared difference
+                squaredDifferences[i] = square;
+                i++;
+            }
+
+            // get the mean of those squared differences
+            double avgOfSquaredDifferences;
+
+            double sum = 0;
+            for (i = 0; i < squaredDifferences.Length; i++)
+            {
+                sum += squaredDifferences[i];
+            }
+
+            avgOfSquaredDifferences = (double)sum / numbers.Length;
+
+            // take the square root
+            double standardDeviation = Math.Sqrt(avgOfSquaredDifferences);
+
+            // done
+            return standardDeviation;
             
         }
-        */
+        
 
     }
 }
