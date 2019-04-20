@@ -42,22 +42,48 @@ namespace Assignment5
             Person p3 = new Person("Benjamin", 72);
             Person p4 = new Person("Matt", 17);
             Person p5 = new Person("Reese", 44);
+            Person p6 = new Person("Mwqyt", 5);
 
             
-            Person[] people = new Person[] {p, p2, p3, p4, p5};
+            Person[] people = new Person[] {p, p2, p3, p4, p5, p6};
 
 
             FilterDelegate isChildDelegate = new FilterDelegate(isChild);
+            FilterDelegate nameContainsVowelDelegate = new FilterDelegate(nameContainsAVowel);
+            FilterDelegate nameDoesNotContainVowelDelegate = new FilterDelegate(nameDoesNotContainAVowel);
 
-            var filtered = DisplayPeople(people, isChildDelegate);
-
-            foreach (var per in filtered)
+            var filteredByIsChild = DisplayPeople(people, isChildDelegate);
+           
+            Console.WriteLine("People who are a child");
+            
+            foreach (var per in filteredByIsChild)
             {
                 Console.WriteLine(per.Name);
             }
 
             Console.WriteLine();
+
+            var filteredByContainsVowel = DisplayPeople(people, nameContainsVowelDelegate);
+
+            Console.WriteLine("People who have vowels in their name:");
+
+            foreach (var per in filteredByContainsVowel)
+            {
+                Console.WriteLine(per.Name);
+            }
             
+            Console.WriteLine();
+
+            var filteredByContainsNoVowel = DisplayPeople(people, nameDoesNotContainAVowel);
+
+            Console.WriteLine("People who DO NOT have vowels in their name:");
+
+            foreach (var per in filteredByContainsNoVowel)
+            {
+                Console.WriteLine(per.Name);
+            }
+
+            Console.WriteLine();
 
            
         }
@@ -104,10 +130,36 @@ namespace Assignment5
             return true;
         }
 
-
-    
-
         
+        public static bool nameContainsAVowel(Person p) 
+        {
+            string vowels = "aeiou";        
+
+            foreach (char c in p.Name)
+            {
+                if(vowels.Contains(c))
+                {
+                    // name has a vowel
+                    return true;
+                }    
+            }
+
+        return false;
+        }
+        
+        public static bool nameDoesNotContainAVowel(Person p)
+        {
+            string vowels = "aeiou";
+
+            foreach (char c in p.Name)
+            {
+                if(vowels.Contains(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
     }
 }
