@@ -12,11 +12,48 @@ Assignment 6a: Create a class named Counter that has an event named ThresholdRea
 
  namespace Assignment6 
  {
-     class Counter{
 
+
+     class Program
+     {
          static void Main(string[] args)
          {
-             
+             Counter c = new Counter();
+             Console.WriteLine("Hello World!");
          }
+
+
+     }
+
+
+     class Counter
+     {
+
+         private int threshold;
+         private int total;
+
+         public event ThresholdReachedEvent thresEvent = new ThresholdReachedEvent();
+
+         public Counter(int thresholdValue)
+         {
+            this.threshold = thresholdValue;
+         }
+
+         public void Add(int x)
+         {
+            if (total >= threshold)
+            {
+                ThresholdReachedEvent env = new ThresholdReachedEvent();  
+
+
+            }
+         }
+
+         // This event should be raised when a counter value equals or exceeds a threshold value 
+         void HandleCustomEvent(object sender, CustomEventArgs a)
+         {
+             // Do something useful here
+         }
+
      }
  }
