@@ -10,50 +10,73 @@ Assignment 6a: Create a class named Counter that has an event named ThresholdRea
 
  */
 
- namespace Assignment6 
- {
+ using System;
+
+namespace Assignment6
+{
 
 
-     class Program
-     {
-         static void Main(string[] args)
-         {
-             Counter c = new Counter();
-             Console.WriteLine("Hello World!");
-         }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Counter c = new Counter(new Random().Next(10));
+            Console.WriteLine("Hello World!");
+        }
+
+        // This event should be raised when a counter value equals or exceeds a threshold value 
+        void HandleCustomEvent(object sender, ThresholdReachedEventArgs e)
+        {
+            // Do something useful here
+            Console.WriteLine("The threshold of {0} was reached at {1}.", e.Threshold, e.TimeReached);
+        }
+
+    }
 
 
-     }
+    class Counter
+    {
 
+        private int threshold;
+        private int total;
 
-     class Counter
-     {
+        public event EventHandler<ThresholdReachedEventArgs> ThresholdReached;
 
-         private int threshold;
-         private int total;
-
-         public event ThresholdReachedEvent thresEvent = new ThresholdReachedEvent();
-
-         public Counter(int thresholdValue)
-         {
+        public Counter(int thresholdValue)
+        {
             this.threshold = thresholdValue;
-         }
+        }
 
-         public void Add(int x)
-         {
+        public void Add(int x)
+        {
+            total += x;
             if (total >= threshold)
             {
-                ThresholdReachedEvent env = new ThresholdReachedEvent();  
+                ThresholdReachedEventArgs env = new ThresholdReachedEventArgs();
+                env.Threshold = threshold;
+                env.TimeReached = DateTime.Now;
+                OnThresholdReached(env);
 
 
             }
-         }
+        }
 
-         // This event should be raised when a counter value equals or exceeds a threshold value 
-         void HandleCustomEvent(object sender, CustomEventArgs a)
-         {
-             // Do something useful here
-         }
+        protected virtual void OnThresholdReached(ThresholdReachedEventArgs e)
+        {
+            EventHandler<ThresholdReachedEventArgs> handler = ThresholdReached;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
 
-     }
- }
+        public class ThresholdReachedEventArgs : EventArgs
+        {
+            public int Threshold { get; set; }
+            public DateTime TimeReached { get; set;}
+        }
+
+
+
+    }
+}
