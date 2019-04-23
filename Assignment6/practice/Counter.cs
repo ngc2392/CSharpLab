@@ -10,7 +10,13 @@ Assignment 6a: Create a class named Counter that has an event named ThresholdRea
 
  */
 
- using System;
+/*
+
+    Good sources: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines
+                https://docs.microsoft.com/en-us/dotnet/api/system.eventhandler-1?view=netframework-4.8 
+*/
+
+using System;
 
 namespace Assignment6
 {
@@ -65,8 +71,11 @@ namespace Assignment6
             if (total >= threshold)
             {
                 ThresholdReachedEventArgs env = new ThresholdReachedEventArgs();
+                
                 env.Threshold = threshold;
                 env.TimeReached = DateTime.Now;
+                
+                
                 // raise the event 
                 OnThresholdReached(env);
 

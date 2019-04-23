@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <StartupObject>Assignment6.Program</StartupObject>
+    <StartupObject>Assignment6.ProgramFinal</StartupObject>
   </PropertyGroup>
 
 </Project>
