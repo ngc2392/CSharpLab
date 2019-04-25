@@ -42,6 +42,7 @@ namespace Assignment6
         }
 
         // Define what actions to take when the event is raised
+        // Event handler method.  This method subscribes to the ThresholdReached event
         static void HandleCustomEvent(int threshold, DateTime time)
         {
             // Do something useful here
@@ -76,14 +77,14 @@ namespace Assignment6
             }
         }
 
-        protected virtual void OnThresholdReached(int threshold, DateTime time)
+        protected virtual void OnThresholdReached(EventArgs e)
         {
             // Make a temporary copy of the event to avoid possibility of a race condition
             EventHandler handler = ThresholdReached;
             if (handler != null)
             {
                 Console.WriteLine("Before handler");
-                handler(threshold, time);
+               handler?.Invoke(this, e);
                 Console.WriteLine("After handler");
 
             }
