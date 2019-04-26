@@ -12,6 +12,7 @@ namespace Assignment6
             b.TransactionMade += HandleCustomEvent;
             b.withdrawal(250.00f);
             b.withdrawal(200.00f);
+            b.deposit(150.14f);
             b.withdrawal(300.00f);
         }
 
