@@ -31,6 +31,14 @@ namespace CSharpLabAssignment8
         {
             String userInput = userInputBox.Text;
             SharpTrooperCore core = new SharpTrooperCore();
+            var people = core.GetAllPeople();
+
+            Console.WriteLine(people.results.Count);
+            
+            foreach(var p in people.results)
+            {
+                Console.WriteLine(p.name);
+            }
             
         }
     }
