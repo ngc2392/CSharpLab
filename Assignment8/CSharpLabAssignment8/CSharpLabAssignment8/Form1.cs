@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SharpTrooper.Core;
+using Newtonsoft.Json;
+
 
 namespace CSharpLabAssignment8
 {
@@ -19,7 +22,16 @@ namespace CSharpLabAssignment8
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            SharpTrooperCore core = new SharpTrooperCore();
+            var planet = core.GetPlanet("1");
+            Console.WriteLine(planet.name);
+        }
 
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            String userInput = userInputBox.Text;
+            SharpTrooperCore core = new SharpTrooperCore();
+            
         }
     }
 }

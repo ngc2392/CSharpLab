@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.userInput = new System.Windows.Forms.TextBox();
+            this.userInputBox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,15 +49,16 @@
             this.genderOutputBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.homePlanetOutputBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // userInput
+            // userInputBox
             // 
-            this.userInput.Location = new System.Drawing.Point(25, 25);
-            this.userInput.Name = "userInput";
-            this.userInput.Size = new System.Drawing.Size(202, 20);
-            this.userInput.TabIndex = 0;
-            this.userInput.Text = "Enter a name";
+            this.userInputBox.Location = new System.Drawing.Point(25, 25);
+            this.userInputBox.Name = "userInputBox";
+            this.userInputBox.Size = new System.Drawing.Size(202, 20);
+            this.userInputBox.TabIndex = 0;
+            this.userInputBox.Text = "Enter a name";
             // 
             // contextMenuStrip1
             // 
@@ -208,11 +209,22 @@
             this.homePlanetOutputBox.Size = new System.Drawing.Size(100, 20);
             this.homePlanetOutputBox.TabIndex = 19;
             // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(198, 257);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(96, 23);
+            this.searchButton.TabIndex = 20;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 415);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.homePlanetOutputBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.genderOutputBox);
@@ -231,7 +243,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.userInput);
+            this.Controls.Add(this.userInputBox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -242,7 +254,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox userInput;
+        private System.Windows.Forms.TextBox userInputBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -262,6 +274,7 @@
         private System.Windows.Forms.TextBox genderOutputBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox homePlanetOutputBox;
+        private System.Windows.Forms.Button searchButton;
     }
 }
 
