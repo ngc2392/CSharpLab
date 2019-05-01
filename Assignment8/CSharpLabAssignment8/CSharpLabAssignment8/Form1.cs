@@ -13,6 +13,7 @@ using SharpTrooper.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SharpTrooper.Entities;
+using System.Text.RegularExpressions;
 
 
 namespace CSharpLabAssignment8
@@ -59,15 +60,18 @@ namespace CSharpLabAssignment8
             Console.WriteLine("RESPONSE " + jsonResponse);
             var jsonObject = JObject.Parse(jsonResponse);
             var urlForPerson = jsonObject["results"][0]["url"].ToString();
-            String id = urlForPerson[urlForPerson.Length - 2].ToString();
+
+            Console.WriteLine("adadsfaasdf" + urlForPerson.Length);
+            String id = Regex.Match(urlForPerson, @"\d+").Value;
+
+
+
             Console.WriteLine("ID FOR " + userInput + ":" + " " + id);
             return id;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-
-
             // get the ID 
             const String URL = "https://swapi.co/api/people/";
             String userInput = userInputBox.Text;
