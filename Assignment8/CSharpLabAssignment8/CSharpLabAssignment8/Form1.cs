@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SharpTrooper.Core;
 using Newtonsoft.Json;
+using SharpTrooper.Entities;
 
 
 namespace CSharpLabAssignment8
@@ -34,12 +35,38 @@ namespace CSharpLabAssignment8
             var people = core.GetAllPeople();
 
             Console.WriteLine(people.results.Count);
-            
+
+
+            Console.WriteLine("NEXT" + " " +  people.next);
+
             foreach(var p in people.results)
             {
+                Console.WriteLine("FIRST PAGE");
                 Console.WriteLine(p.name);
             }
-            
+
+            var person45 = core.GetPeople("45");
+            Console.WriteLine("45" + " " + person45.name);
+
+            var person87 = core.GetPeople("87");
+            Console.WriteLine("87" + " " +  person87.name);
+
+            var resourceFromUrl = core.GetSingleByUrl<SharpEntityResults<People>>(people.next);
+
+            foreach (var p in resourceFromUrl.results)
+            {
+                Console.WriteLine("SECOND PAGE");
+                Console.WriteLine(p.name);
+            }
+
+
+
+            var planet = core.GetPlanet("1");
+
+            var planets = core.GetAllPlanets();
+
+          
         }
+
     }
 }
