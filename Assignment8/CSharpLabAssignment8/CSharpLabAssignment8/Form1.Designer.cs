@@ -48,6 +48,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.homePlanetOutputBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.filmsListView = new System.Windows.Forms.ListView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.speciesListView = new System.Windows.Forms.ListView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.vehiclesListView = new System.Windows.Forms.ListView();
+            this.starshipsListView = new System.Windows.Forms.ListView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userInputBox
@@ -204,7 +212,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(198, 257);
+            this.searchButton.Location = new System.Drawing.Point(213, 368);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(96, 23);
             this.searchButton.TabIndex = 20;
@@ -212,11 +220,91 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // filmsListView
+            // 
+            this.filmsListView.Location = new System.Drawing.Point(28, 226);
+            this.filmsListView.Name = "filmsListView";
+            this.filmsListView.Size = new System.Drawing.Size(129, 97);
+            this.filmsListView.TabIndex = 21;
+            this.filmsListView.UseCompatibleStateImageBehavior = false;
+            this.filmsListView.View = System.Windows.Forms.View.List;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(77, 210);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(30, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Films";
+            // 
+            // speciesListView
+            // 
+            this.speciesListView.Location = new System.Drawing.Point(180, 226);
+            this.speciesListView.Name = "speciesListView";
+            this.speciesListView.Size = new System.Drawing.Size(129, 97);
+            this.speciesListView.TabIndex = 23;
+            this.speciesListView.UseCompatibleStateImageBehavior = false;
+            this.speciesListView.View = System.Windows.Forms.View.List;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(221, 210);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Species";
+            // 
+            // vehiclesListView
+            // 
+            this.vehiclesListView.Location = new System.Drawing.Point(353, 226);
+            this.vehiclesListView.Name = "vehiclesListView";
+            this.vehiclesListView.Size = new System.Drawing.Size(129, 97);
+            this.vehiclesListView.TabIndex = 25;
+            this.vehiclesListView.UseCompatibleStateImageBehavior = false;
+            this.vehiclesListView.View = System.Windows.Forms.View.List;
+            // 
+            // starshipsListView
+            // 
+            this.starshipsListView.Location = new System.Drawing.Point(514, 226);
+            this.starshipsListView.Name = "starshipsListView";
+            this.starshipsListView.Size = new System.Drawing.Size(129, 97);
+            this.starshipsListView.TabIndex = 26;
+            this.starshipsListView.UseCompatibleStateImageBehavior = false;
+            this.starshipsListView.View = System.Windows.Forms.View.List;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(386, 210);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(47, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Vehicles";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(557, 210);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(50, 13);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Starships";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 415);
+            this.ClientSize = new System.Drawing.Size(789, 415);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.starshipsListView);
+            this.Controls.Add(this.vehiclesListView);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.speciesListView);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.filmsListView);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.homePlanetOutputBox);
             this.Controls.Add(this.label9);
@@ -267,6 +355,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox homePlanetOutputBox;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.ListView filmsListView;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListView speciesListView;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListView vehiclesListView;
+        private System.Windows.Forms.ListView starshipsListView;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 

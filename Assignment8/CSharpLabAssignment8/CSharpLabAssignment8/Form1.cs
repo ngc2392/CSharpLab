@@ -52,6 +52,7 @@ namespace CSharpLabAssignment8
             }
         }
 
+        // Regex: https://stackoverflow.com/questions/4734116/find-and-extract-a-number-from-a-string
         private String getIdForRequestedPerson(HttpResponseMessage response)
         {
             String userInput = userInputBox.Text;
@@ -93,6 +94,13 @@ namespace CSharpLabAssignment8
         public void putOutputToScreen(People person)
         {
 
+            // clear any text from previous searches
+            filmsListView.Items.Clear();
+            speciesListView.Items.Clear();
+            vehiclesListView.Items.Clear();
+            starshipsListView.Items.Clear();
+
+
             SharpTrooperCore core = new SharpTrooperCore();
 
             nameOutputBox.Text = person.name;
@@ -104,12 +112,36 @@ namespace CSharpLabAssignment8
             birthYearOutputBox.Text = person.birth_year;
             genderOutputBox.Text = person.gender;
 
-            foreach(String film in person.films)
+            // put the films on the UI
+            foreach (String film in person.films)
             {
                 String filmID = Regex.Match(film, @"\d+").Value;
-                Film filmObject = core.GetFilm(filmID);
+                Film tempFilm = core.GetFilm(filmID);
+                filmsListView.Items.Add(tempFilm.title);
+            }
 
+            // put the species on the UI
+            foreach (String speciesLink in person.species)
+            {
+                String speciesID = Regex.Match(speciesLink, @"\d+").Value;
+                Specie tempSpecies = core.GetSpecie(speciesID);
+                speciesListView.Items.Add(tempSpecies.name);
+            }
 
+            // put the vehicles on the UI
+            foreach (String vehicleLink in person.vehicles)
+            {
+                String vehicleID = Regex.Match(vehicleLink, @"\d+").Value;
+                Vehicle tempVehicle = core.GetVehicle(vehicleID);
+                vehiclesListView.Items.Add(tempVehicle.name);
+            }
+
+            // put the starships on the UI
+            foreach (String starshipLink in person.starships)
+            {
+                String starshipID = Regex.Match(starshipLink, @"\d+").Value;
+                Starship tempStarship = core.GetStarship(starshipID);
+                starshipsListView.Items.Add(tempStarship.name);
             }
 
         }
