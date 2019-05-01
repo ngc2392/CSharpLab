@@ -142,6 +142,7 @@
             // 
             this.nameOutputBox.Location = new System.Drawing.Point(25, 80);
             this.nameOutputBox.Name = "nameOutputBox";
+            this.nameOutputBox.ReadOnly = true;
             this.nameOutputBox.Size = new System.Drawing.Size(100, 20);
             this.nameOutputBox.TabIndex = 10;
             // 
@@ -149,6 +150,7 @@
             // 
             this.heightOutputBox.Location = new System.Drawing.Point(25, 131);
             this.heightOutputBox.Name = "heightOutputBox";
+            this.heightOutputBox.ReadOnly = true;
             this.heightOutputBox.Size = new System.Drawing.Size(100, 20);
             this.heightOutputBox.TabIndex = 11;
             // 
@@ -156,6 +158,7 @@
             // 
             this.massOutputBox.Location = new System.Drawing.Point(25, 178);
             this.massOutputBox.Name = "massOutputBox";
+            this.massOutputBox.ReadOnly = true;
             this.massOutputBox.Size = new System.Drawing.Size(100, 20);
             this.massOutputBox.TabIndex = 12;
             // 
@@ -163,6 +166,7 @@
             // 
             this.hairColorOutputBox.Location = new System.Drawing.Point(177, 80);
             this.hairColorOutputBox.Name = "hairColorOutputBox";
+            this.hairColorOutputBox.ReadOnly = true;
             this.hairColorOutputBox.Size = new System.Drawing.Size(100, 20);
             this.hairColorOutputBox.TabIndex = 13;
             // 
@@ -170,6 +174,7 @@
             // 
             this.skinColorOutputBox.Location = new System.Drawing.Point(176, 131);
             this.skinColorOutputBox.Name = "skinColorOutputBox";
+            this.skinColorOutputBox.ReadOnly = true;
             this.skinColorOutputBox.Size = new System.Drawing.Size(100, 20);
             this.skinColorOutputBox.TabIndex = 14;
             // 
@@ -177,6 +182,7 @@
             // 
             this.eyeColorOutputBox.Location = new System.Drawing.Point(176, 178);
             this.eyeColorOutputBox.Name = "eyeColorOutputBox";
+            this.eyeColorOutputBox.ReadOnly = true;
             this.eyeColorOutputBox.Size = new System.Drawing.Size(100, 20);
             this.eyeColorOutputBox.TabIndex = 15;
             // 
@@ -184,6 +190,7 @@
             // 
             this.birthYearOutputBox.Location = new System.Drawing.Point(331, 80);
             this.birthYearOutputBox.Name = "birthYearOutputBox";
+            this.birthYearOutputBox.ReadOnly = true;
             this.birthYearOutputBox.Size = new System.Drawing.Size(100, 20);
             this.birthYearOutputBox.TabIndex = 16;
             // 
@@ -191,6 +198,7 @@
             // 
             this.genderOutputBox.Location = new System.Drawing.Point(331, 131);
             this.genderOutputBox.Name = "genderOutputBox";
+            this.genderOutputBox.ReadOnly = true;
             this.genderOutputBox.Size = new System.Drawing.Size(100, 20);
             this.genderOutputBox.TabIndex = 17;
             // 
@@ -207,6 +215,7 @@
             // 
             this.homePlanetOutputBox.Location = new System.Drawing.Point(331, 178);
             this.homePlanetOutputBox.Name = "homePlanetOutputBox";
+            this.homePlanetOutputBox.ReadOnly = true;
             this.homePlanetOutputBox.Size = new System.Drawing.Size(100, 20);
             this.homePlanetOutputBox.TabIndex = 19;
             // 

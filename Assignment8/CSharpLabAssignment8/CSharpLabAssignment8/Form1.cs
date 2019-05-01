@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Windows.Forms;
 using SharpTrooper.Core;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SharpTrooper.Entities;
 using System.Text.RegularExpressions;
-
 
 namespace CSharpLabAssignment8
 {
@@ -36,8 +27,6 @@ namespace CSharpLabAssignment8
         // help with json https://stackoverflow.com/questions/16459155/how-to-access-json-object-in-c-sharp
         private HttpResponseMessage getRequest(String url, String urlParams)
         {
-            
-
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -56,18 +45,10 @@ namespace CSharpLabAssignment8
         private String getIdForRequestedPerson(HttpResponseMessage response)
         {
             String userInput = userInputBox.Text;
-
             var jsonResponse = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine("RESPONSE " + jsonResponse);
             var jsonObject = JObject.Parse(jsonResponse);
             var urlForPerson = jsonObject["results"][0]["url"].ToString();
-
-            Console.WriteLine("adadsfaasdf" + urlForPerson.Length);
             String id = Regex.Match(urlForPerson, @"\d+").Value;
-
-
-
-            Console.WriteLine("ID FOR " + userInput + ":" + " " + id);
             return id;
         }
 
@@ -78,28 +59,22 @@ namespace CSharpLabAssignment8
             String userInput = userInputBox.Text;
             String urlParameters = "?search=" + userInput;
             Console.WriteLine("API CALL TO " + URL + urlParameters);
-           
             HttpResponseMessage response = getRequest(URL, urlParameters);
             String id = getIdForRequestedPerson(response);
-
             SharpTrooperCore core = new SharpTrooperCore();
             var person = core.GetPeople(id);
-
-            Console.WriteLine(person.name);
-
             putOutputToScreen(person);
-          
         }
 
         public void putOutputToScreen(People person)
         {
+            Console.WriteLine("Outputting persons info on screen");
 
             // clear any text from previous searches
             filmsListView.Items.Clear();
             speciesListView.Items.Clear();
             vehiclesListView.Items.Clear();
             starshipsListView.Items.Clear();
-
 
             SharpTrooperCore core = new SharpTrooperCore();
 
@@ -111,6 +86,10 @@ namespace CSharpLabAssignment8
             eyeColorOutputBox.Text = person.eye_color;
             birthYearOutputBox.Text = person.birth_year;
             genderOutputBox.Text = person.gender;
+
+            String planetID = Regex.Match(person.homeworld, @"\d+").Value;
+            Planet planet = core.GetPlanet(planetID);
+            homePlanetOutputBox.Text = planet.name;
 
             // put the films on the UI
             foreach (String film in person.films)
@@ -144,7 +123,25 @@ namespace CSharpLabAssignment8
                 starshipsListView.Items.Add(tempStarship.name);
             }
 
-        }
+            if(filmsListView.Items.Count == 0)
+            {
+                filmsListView.Items.Add("NO FILMS");
+            }
 
+            if(speciesListView.Items.Count == 0)
+            {
+                speciesListView.Items.Add("NO SPECIES");
+            }
+
+            if(vehiclesListView.Items.Count == 0)
+            {
+                vehiclesListView.Items.Add("NO VEHICLES");
+            }
+
+            if(starshipsListView.Items.Count == 0)
+            {
+                starshipsListView.Items.Add("NO STARSHIPS");
+            }
+        }
     }
 }
