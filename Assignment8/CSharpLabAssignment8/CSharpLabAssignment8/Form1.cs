@@ -11,6 +11,7 @@ using System.Net.Http.Headers;
 using System.Windows.Forms;
 using SharpTrooper.Core;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SharpTrooper.Entities;
 
 
@@ -31,8 +32,11 @@ namespace CSharpLabAssignment8
         }
 
         // help with making request https://stackoverflow.com/questions/9620278/how-do-i-make-calls-to-a-rest-api-using-c
-        private void getRequest(String url, String urlParams)
+        // help with json https://stackoverflow.com/questions/16459155/how-to-access-json-object-in-c-sharp
+        private HttpResponseMessage getRequest(String url, String urlParams)
         {
+            
+
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(url);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -40,10 +44,24 @@ namespace CSharpLabAssignment8
 
             if(response.IsSuccessStatusCode)
             {
-                var dataObjects = response.Content.ReadAsStringAsync().Result;
-                Console.WriteLine("RESPONSE " + dataObjects);
-
+                return response;
+            } else
+            {
+                return null;
             }
+        }
+
+        private String getIdForRequestedPerson(HttpResponseMessage response)
+        {
+            String userInput = userInputBox.Text;
+
+            var jsonResponse = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine("RESPONSE " + jsonResponse);
+            var jsonObject = JObject.Parse(jsonResponse);
+            var urlForPerson = jsonObject["results"][0]["url"].ToString();
+            String id = urlForPerson[urlForPerson.Length - 2].ToString();
+            Console.WriteLine("ID FOR " + userInput + ":" + " " + id);
+            return id;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -55,41 +73,16 @@ namespace CSharpLabAssignment8
             String userInput = userInputBox.Text;
             String urlParameters = "?search=" + userInput;
             Console.WriteLine("API CALL TO " + URL + urlParameters);
-            getRequest(URL, urlParameters);
-
+           
+            HttpResponseMessage response = getRequest(URL, urlParameters);
+            String id = getIdForRequestedPerson(response);
 
             SharpTrooperCore core = new SharpTrooperCore();
-            var people = core.GetAllPeople();
+            var person = core.GetPeople(id);
 
-            Console.WriteLine(people.results.Count);
+            Console.WriteLine(person.name);
 
-
-            Console.WriteLine("NEXT" + " " +  people.next);
-
-            foreach(var p in people.results)
-            {
-                Console.WriteLine("FIRST PAGE");
-                Console.WriteLine(p.name);
-            }
-
-            var person45 = core.GetPeople("45");
-            Console.WriteLine("45" + " " + person45.name);
-
-            var person87 = core.GetPeople("87");
-            Console.WriteLine("87" + " " +  person87.name);
-
-            var resourceFromUrl = core.GetSingleByUrl<SharpEntityResults<People>>(people.next);
-
-            foreach (var p in resourceFromUrl.results)
-            {
-                Console.WriteLine("SECOND PAGE");
-                Console.WriteLine(p.name);
-            }
-
-            var planet = core.GetPlanet("1");
-
-            var planets = core.GetAllPlanets();
-
+            
           
         }
 
