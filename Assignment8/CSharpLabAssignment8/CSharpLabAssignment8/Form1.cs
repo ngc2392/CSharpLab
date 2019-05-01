@@ -86,8 +86,32 @@ namespace CSharpLabAssignment8
 
             Console.WriteLine(person.name);
 
-            
+            putOutputToScreen(person);
           
+        }
+
+        public void putOutputToScreen(People person)
+        {
+
+            SharpTrooperCore core = new SharpTrooperCore();
+
+            nameOutputBox.Text = person.name;
+            heightOutputBox.Text = person.height;
+            massOutputBox.Text = person.mass;
+            hairColorOutputBox.Text = person.hair_color;
+            skinColorOutputBox.Text = person.skin_color;
+            eyeColorOutputBox.Text = person.eye_color;
+            birthYearOutputBox.Text = person.birth_year;
+            genderOutputBox.Text = person.gender;
+
+            foreach(String film in person.films)
+            {
+                String filmID = Regex.Match(film, @"\d+").Value;
+                Film filmObject = core.GetFilm(filmID);
+
+
+            }
+
         }
 
     }
